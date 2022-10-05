@@ -1,6 +1,4 @@
 
-console.log("testerli");
-console.log("test2");
 // Practice Code
 
 // const country = 'Germany';
@@ -17,6 +15,8 @@ console.log("test2");
 // } else {
 //     console.log(`${country}'s population is ${averagePopulationOfCountries - population} million below average!`)
 // };
+
+// console.log(`Germany's population is ${population > averagePopulationOfCountries ? "above" : "below"} average`);
 
 // if (language === "english" && population < 50 && isIsland === false) {
 //     console.log("You should live in Austria!")
@@ -224,15 +224,23 @@ if (favourite === 23) {
 // }
 
 
-const day = "asdasd";
+// const day = "asdasd";
 
-if (day === "monday") {
-    console.log("Go Code Meetup");
-} else if (day === "tuesday") {
+// if (day === "monday") {
+//     console.log("Go Code Meetup");
+// } else if (day === "tuesday") {
 
-} else if (day === "wednesday" || day === "thursday") {
-    console.log("Write code examples");
-} else {
-    console.log("No valid day!");
-};
+// } else if (day === "wednesday" || day === "thursday") {
+//     console.log("Write code examples");
+// } else {
+//     console.log("No valid day!");
+// };
 
+// const age = 23;
+// age >= 18 ? console.log("I like to drink wine!") : console.log("dont drink anything");
+
+
+const bill = 430;
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
