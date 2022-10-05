@@ -51,21 +51,44 @@
 // console.log(describePopulation("China", 1441));
 
 
-const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3
-const checkWinner = (average1, average2) => {
-    if (average1 >= 2 * average2) {
-        return `Dolphins wins (${average1} vs ${average2})`
-    } else if (average2 >= average1 * 2) {
-        return `Koalas win (${average2} vs ${average1})`
+// const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3
+// const checkWinner = (average1, average2) => {
+//     if (average1 >= 2 * average2) {
+//         return `Dolphins wins (${average1} vs ${average2})`
+//     } else if (average2 >= average1 * 2) {
+//         return `Koalas win (${average2} vs ${average1})`
+//     } else {
+//         return "No team wins!"
+//     }
+// }
+
+// const avgDolphins = calcAverage(44, 23, 71);
+// const avgKoalas = calcAverage(65, 54, 49);
+
+// // const avgDolphins = calcAverage(85, 54, 41);
+// // const avgKoalas = calcAverage(23, 34, 27);
+
+// console.log(checkWinner(avgDolphins, avgKoalas));
+
+
+// const bill = 100;
+// const tipOld = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+
+const calculateTip = (num) => {
+    if (num >= 50 && num <= 300) {
+        return num * 0.15;
     } else {
-        return "No team wins!"
+        return num * 0.2;
     }
-}
+};
+let tips = []
+const bills = [125, 555, 44]
 
-const avgDolphins = calcAverage(44, 23, 71);
-const avgKoalas = calcAverage(65, 54, 49);
+bills.forEach(element => tips.push(calculateTip(element)));
 
-// const avgDolphins = calcAverage(85, 54, 41);
-// const avgKoalas = calcAverage(23, 34, 27);
 
-console.log(checkWinner(avgDolphins, avgKoalas));
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
+
+// console.log(calculateTip(bill));
+// console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
