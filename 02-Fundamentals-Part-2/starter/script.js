@@ -29,9 +29,29 @@
 //     }
 
 // };
-// myCountry.checkIsland();
-// console.log(myCountry.describe());
+// // myCountry.checkIsland();
+// // console.log(myCountry.describe());
 
+// const populations = [84, 33, 1344, 25];
+// const percentages2 = [];
+
+// function percentageOfWorld1(population) {
+//     const result = parseFloat(((population / 7900) * 100).toFixed(2))
+//     return result
+// }
+
+// for (let index = 0; index < populations.length; index++) {
+//     percentages2.push(percentageOfWorld1(populations[index]))
+// }
+
+// const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden',
+//     'Russia']];
+
+// for (let i = 0; i < listOfNeighbours.length; i++) {
+//     for (let j = 0; j < listOfNeighbours[i].length; j++) {
+//         console.log(`Neighbour:${listOfNeighbours[i][j]}`)
+//     }
+// }
 
 // console.log(`${myCountry.country} has ${myCountry["population"] - 2} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbourig countries and a capital called ${myCountry.capital}`);
 
@@ -178,4 +198,92 @@
 //     console.log(`pump ${i}`);
 
 // }
+
+
+// const jonasArray = [
+//     'Jonas',
+//     'Schmedtmann',
+//     2037 - 1991,
+//     'teacher',
+//     ['Michael', 'Peter', 'Steven'],
+//     true
+// ];
+// // const types = [];
+
+// for (let i = jonasArray.length - 1; i >= 0; i--) {
+//     console.log(jonasArray[i])
+// }
+
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+//     ages.push(2037 - years[i])
+// }
+// console.log(years);
+
+
+// for (let i = 0; i < jonasArray.length; i++) {
+//     if (typeof jonasArray[i] !== 'string') continue
+//     console.log(jonasArray[i], typeof jonasArray[i]);
+
+//     // types[i] = typeof jonasArray[i]
+//     types.push(typeof jonasArray[i])
+// };
+
+// for (let i = 0; i < jonasArray.length; i++) {
+
+//     console.log(jonasArray[i], typeof jonasArray[i]);
+//     if (typeof jonasArray[i] === 'number') break
+//     // types[i] = typeof jonasArray[i]
+//     types.push(typeof jonasArray[i])
+// };
+// let i = 1;
+// while (i <= 10) {
+
+//     console.log(`repetation ${i}`)
+//     i++;
+// };
+
+
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+
+// while (dice !== 6) {
+//     console.log(`You rolled a ${dice}`)
+//     dice = Math.trunc(Math.random() * 6) + 1;
+//     if (dice === 6) console.log(`You rolled a ${dice}`)
+// }
+
+
+const calcTip = (num) => {
+    if (num >= 50 && num <= 300) {
+        return num * 0.15;
+    } else {
+        return num * 0.2;
+    }
+};
+
+const calcAverage = (arr) => {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum = sum + arr[i];
+    }
+    return sum / arr.length;
+};
+
+
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const total = [];
+
+bills.forEach(element => tips.push(calcTip(element)));
+
+for (let i = 0; i < bills.length; i++) {
+    total[i] = bills[i] + tips[i]
+}
+
+console.log(calcAverage(total));
+
 
