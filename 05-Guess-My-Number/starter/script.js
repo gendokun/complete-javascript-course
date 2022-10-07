@@ -44,4 +44,6 @@ document.querySelector(".again").addEventListener("click", () => {
   score = document.querySelector(".score").textContent = 20;
   displayMessage("Start guessing...");
   document.querySelector(".guess").value = "";
+
+  console.log("fuck you");
 });
