@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "F:/Development/First Project"
+	},
+	{
+		"name": "complete-javascript-course",
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "complete-javascript-course"
+  }
+}
