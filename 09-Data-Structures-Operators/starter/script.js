@@ -42,38 +42,134 @@ const restaurant = {
   },
 };
 
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+//////////////// MAPS ////////
 
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
-  // console.log(`On ${day}, we open at ${open}`);
-}
+// const question = new Map([
+//   ['question', 'What is the best programming language in the world ?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct!'],
+//   [false, 'try again'],
+// ]);
 
-// Methods
-// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
-// console.log(restaurant.orderRisotto?.('1,2') ?? 'Method does not exist');
+// console.log(question);
 
-// Arrays
-const users = [{ name: 'Peter', email: 'existent@existent.com' }];
+// // Convert Object to Map
 
-// console.log(users[1]?.name ?? 'User Array Empty');
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
 
-//Property names
-for (const day of Object.keys(openingHours)) {
-  // console.log(day);
-}
+// console.log(hoursMap);
 
-// Property Values
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
 
-const values = Object.values(openingHours);
+// // const answer = Number(prompt('Your answer'));
+// const answer = 3;
 
-//Entire Object
-const entries = Object.entries(openingHours);
-// console.log(entries);
+// console.log(question.get(answer === question.get('correct')));
 
-for (const [key, { open, close }] of entries) {
-  // console.log(`On ${key} we open at ${open} and close at ${close}`);
-}
+// //Convert Map to array
+// console.log([...question]);
+// console.log([...question.keys()]);
+// console.log([...question.values()]);
+
+/*
+//////////// MAPS FUNDAMENTALS //////////////////////////
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+rest.set(2, 'Lisbon, Portugal');
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'we are closed');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+rest.set([1, 2], 'Test');
+console.log(rest);
+// console.log(rest.clear());
+console.log(rest.size);
+
+rest.set(document.querySelector('h1'), 'Heading');
+
+console.log(rest);
+
+*/
+
+// const ordersSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
+
+// ordersSet.add('Garlic Bread');
+// ordersSet.add('Garlic Bread');
+// ordersSet.delete('Risotto');
+
+// console.log(ordersSet);
+
+// for (const order of ordersSet) console.log(order);
+
+// // Example (removing stuff from Arrays)
+
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+// const staffUnique = [...new Set(staff)]; // Array out of Set = removed duplicates
+// console.log(staffUnique);
+
+// console.log(new Set(staff).size);
+
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   // console.log(`On ${day}, we open at ${open}`);
+// }
+
+// // Methods
+// // console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// // console.log(restaurant.orderRisotto?.('1,2') ?? 'Method does not exist');
+
+// // Arrays
+// const users = [{ name: 'Peter', email: 'existent@existent.com' }];
+
+// // console.log(users[1]?.name ?? 'User Array Empty');
+
+// //Property names
+// for (const day of Object.keys(openingHours)) {
+//   // console.log(day);
+// }
+
+// // Property Values
+
+// const values = Object.values(openingHours);
+
+// //Entire Object
+// const entries = Object.entries(openingHours);
+// // console.log(entries);
+
+// for (const [key, { open, close }] of entries) {
+// console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
 
 // const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 // const str = 'abc';
@@ -171,46 +267,46 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 GOOD LUCK 😀
 */
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
 // const scorers = game.scored.entries();
 // const scorersall = [...scorers];
@@ -262,24 +358,54 @@ const game = {
 // team1 < team2 && console.log('Team 1 is more like to win');
 // team1 > team2 && console.log('Team 2 is more like to win');
 
-for (const [goal, scorer] of game.scored.entries()) {
-  console.log(`Goal ${goal + 1}: ${scorer}`);
-}
+// for (const [goal, scorer] of game.scored.entries()) {
+//   console.log(`Goal ${goal + 1}: ${scorer}`);
+// }
 
-// 2. Odds
+// // 2. Odds
 
-const oddsarray = Object.values(game.odds);
+// const oddsarray = Object.values(game.odds);
 
-const logOddAverage = function () {
-  let sum = 0;
-  for (let i of oddsarray) {
-    sum += i;
-  }
-  let average = parseFloat(sum / oddsarray.length).toFixed(2);
-  console.log(`The odds average is ${average}`);
-};
+// const logOddAverage = function () {
+//   let sum = 0;
+//   for (let i of oddsarray) {
+//     sum += i;
+//   }
+//   let average = parseFloat(sum / oddsarray.length).toFixed(2);
+//   console.log(`The odds average is ${average}`);
+// };
 
-logOddAverage();
+// logOddAverage();
+
+// //3.
+
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+
+//   console.log(`Odd of ${teamStr}: ${odd}`);
+// }
+
+// // const logOdds = function () {
+// //   const { team1, team2, ...rest } = game;
+
+// //   console.log(`Odd of victory ${team1}: ${oddsarray[0]}`);
+// //   console.log(`Odd of draw: ${oddsarray[1]}`);
+// //   console.log(`Odd of victory ${team2}: ${oddsarray[2]}`);
+// // };
+
+// // logOdds();
+
+// //BONUS
+// const scorers = {};
+
+// for (const name of game.scored) {
+//   scorers[name] = scorers[name] ? scorers[name] + 1 : 1;
+// }
+// console.log(scorers);
+
+// for (const name of game.scored) {
+//   console.log(name);
+// }
 
 /*
 1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
@@ -301,3 +427,53 @@ BONUS: Create an object called 'scorers' which contains the names of the players
         Lewandowski: 2
       }
 */
+
+//////////////////////////////////////
+// Coding Challenge #3
+
+/* 
+Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
+
+1. Create an array 'events' of the different game events that happened (no duplicates)
+2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+      [FIRST HALF] 17: ⚽️ GOAL
+
+GOOD LUCK 😀
+*/
+
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+//SOLUTION 1:
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+//SOLUTION 2:
+gameEvents.delete(64);
+
+//SOLUTION 3:
+console.log(
+  `An event happend, on average, every ${90 / gameEvents.size} minutes`
+);
+
+//SOLUTION 4:
+for (let [key, value] of gameEvents) {
+  if (key < 45) {
+    console.log(`[FIRST HALF] ${key}:${value}`);
+  } else {
+    console.log(`[SECOND HALF] ${key}:${value}`);
+  }
+}
