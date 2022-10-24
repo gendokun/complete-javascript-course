@@ -4,6 +4,25 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '❌' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(45);
+  console.log(output, output.length);
+}
+
 // Data needed for first part of the section
 
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
@@ -41,6 +60,198 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+/* 
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+
+The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
+
+THIS TEST DATA (pasted to textarea)
+underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+
+SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
+
+HINT 1: Remember which character defines a new line in the textarea 😉
+HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
+HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+Afterwards, test with your own test data!
+
+GOOD LUCK 😀
+*/
+
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+
+// document.querySelector('button').addEventListener('click', function () {
+//   const text = document.querySelector('textarea').value;
+//   const normalizeText = text.split('\n');
+
+//   for (const [i, word] of normalizeText.entries()) {
+//     let [first, second] = word.trim().toLowerCase().split('_');
+//     let output = `${first}${second.replace(
+//       second[0],
+//       second[0].toUpperCase()
+//     )}`;
+//     console.log(`${output.padEnd(20)} ${'✅'.repeat(i + 1)}`);
+//   }
+
+// console.log(text);
+// console.log(normalizeText);
+// });
+// const text =
+//   'underscore_case \n first_name \n Some_Variable \n calculate_AGE \n delayed_departure';
+
+// //Split and Join
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Jonas Schmedtmann'.split(' '));
+
+// const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+
+// const capitalizeName = function (name) {
+//   const names = name.split(' ');
+//   const namesUpper = [];
+//   for (const word of names) {
+//     // namesUpper.push(word[0].toUpperCase() + word.slice(1));
+//     namesUpper.push(word.replace(word[0], word[0].toUpperCase()));
+//   }
+//   console.log(namesUpper.join(' '));
+// };
+
+// const passenger = 'jessica ann smith davis';
+// capitalizeName(passenger);
+// capitalizeName('jonas schmedtmann');
+
+// // Padding
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(20, '+').padEnd(30, '+'));
+// console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// };
+
+// console.log(maskCreditCard(456118356468451348));
+// console.log(maskCreditCard('54613215486454648'));
+
+// // Repeat Method
+// const message2 = 'Bad Weather... All Departues Delayed... ';
+
+// console.log(message2.repeat(5));
+
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} planes in line ${'🛫'.repeat(n)}`);
+// };
+
+// planesInLine(5);
+// planesInLine(3);
+
+// const airline = 'TAP Air Portugal';
+
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+
+// // Fix captialization in name
+
+// const passenger = 'jOnAS';
+// const passangerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passangerLower[0].toUpperCase() + passangerLower.slice(1);
+
+// console.log(passengerCorrect);
+
+// // Comparing E-Mail
+// const email = 'hello@jonas.io';
+// const loginEmail = '   Hello@jonas.io   \n';
+
+// // const lowerEmail = loginEmail.toLowerCase();
+// // const trimmedEmail = lowerEmail.trim();
+
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+
+// console.log(email === normalizedEmail);
+
+// // replacing
+// const priceGB = '288,97€';
+
+// const priceUS = priceGB.replace('€', '$').replace(',', '.');
+// console.log(priceUS);
+
+// const announcement =
+//   'All passengers come to boarding door 23. Boarding door 23!';
+
+// console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'));
+
+// //Booleans
+
+// const plane = 'Airbus A320neo';
+// console.log(plane.includes('A320'));
+// console.log(plane.startsWith('Air'));
+
+// if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+//   console.log('part of the new airbus familiy');
+// }
+
+// // Practice excercise
+// const checkBaggage = function (items) {
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log('You are not allowed on board');
+//   } else {
+//     console.log('Welcome aboard!');
+//   }
+// };
+
+// checkBaggage('I have a laptop, some Food and a pocket Knife');
+// checkBaggage('Socks and camera');
+// checkBaggage('Some snacks and a gun for protection');
+
+// const plane = 'A320';
+
+// console.log(plane[0]);
+// console.log(airline.length);
+// console.log('B737'.length);
+
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Portugal'));
+
+// console.log(airline.slice(4, 7));
+
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function (seat) {
+//   // B & E are middle Seats
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') console.log('You got the middle seat');
+//   else console.log('You are lucky, no middle seat');
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
 
 //////////////// MAPS ////////
 
@@ -457,23 +668,29 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
-//SOLUTION 1:
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+// //SOLUTION 1:
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-//SOLUTION 2:
-gameEvents.delete(64);
+// //SOLUTION 2:
+// gameEvents.delete(64);
 
-//SOLUTION 3:
-console.log(
-  `An event happend, on average, every ${90 / gameEvents.size} minutes`
-);
+// //SOLUTION 3:
+// console.log(
+//   `An event happend, on average, every ${90 / gameEvents.size} minutes`
+// );
 
-//SOLUTION 4:
-for (let [key, value] of gameEvents) {
-  if (key < 45) {
-    console.log(`[FIRST HALF] ${key}:${value}`);
-  } else {
-    console.log(`[SECOND HALF] ${key}:${value}`);
-  }
-}
+// //SOLUTION 4:
+// for (let [key, value] of gameEvents) {
+//   if (key < 45) {
+//     console.log(`[FIRST HALF] ${key}:${value}`);
+//   } else {
+//     console.log(`[SECOND HALF] ${key}:${value}`);
+//   }
+// }
+// SOLUTION 4 BEST:
+// 4.
+// for (const [min, event] of gameEvents) {
+//   const half = min <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${min}: ${event}`);
+// }
